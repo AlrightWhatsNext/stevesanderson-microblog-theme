@@ -1,5 +1,5 @@
 {{ $title := .Site.Title }}{{ if and (not .IsHome) .Title }}{{ $title = .Title }}{{ end }}
-{{ $desc := .Site.Params.description | default "Steve Sanderson — coaching revenue-stage software CEOs and their leaders to raise the capability to deliver better products." }}{{ if and (not .IsHome) .Summary }}{{ $desc = .Summary | plainify }}{{ end }}
+{{ $desc := "Steve Sanderson - coaching revenue-stage software CEOs and their leaders to raise the capability to deliver better products." }}{{ if and (not .IsHome) .Summary }}{{ $desc = .Summary | plainify }}{{ end }}
 <meta name="description" content="{{ $desc }}">
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
