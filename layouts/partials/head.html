@@ -1,3 +1,37 @@
 <meta name="description" content="{{ .Site.Params.description | default .Site.Title }}">
-<link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}">{{ end }}
+<style>
+/* Inlined in <head> — Micro.blog reserves /custom.css for its Design "Edit CSS" box,
+   which shadows a theme static/custom.css. Inlining avoids that interception.
+   Phase 0 spike styles; full design CSS lands here in Phase 1. */
+
+body {
+  margin: 0;
+  background: #fbfaf7;
+  color: #1b1b1b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+
+h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: 34px; margin: 4px 0 18px; }
+h2 { font-size: 24px; margin: 0 0 14px; }
+
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 12.5px; font-weight: 700; color: #2f4858; margin: 0 0 8px; }
+
+section { padding: 22px 0; border-top: 1px solid #e4e1da; }
+section:first-child { border-top: none; }
+
+.check { background: #fff; border: 1px solid #2f4858; border-radius: 8px; padding: 14px 16px; color: #2f4858; }
+.ok { color: #2f6b3a; font-weight: 600; }
+.warn { background: #fbecea; border: 1px solid #b54b3a; border-radius: 8px; padding: 14px 16px; color: #b54b3a; }
+
+ul.post-list { list-style: none; padding: 0; margin: 8px 0 0; }
+ul.post-list li { padding: 10px 0; border-top: 1px solid #e4e1da; }
+ul.post-list li:first-child { border-top: none; }
+ul.post-list small { color: #5b5b57; margin-left: 8px; }
+
+a { color: #2f4858; }
+</style>
