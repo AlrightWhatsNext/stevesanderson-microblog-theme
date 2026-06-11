@@ -1,0 +1,17 @@
+{{ define "main" }}
+<section class="wrap text" style="padding:56px 28px 64px;">
+  <p class="eyebrow">Insights</p>
+  <h1 style="font-size:30px;margin:0 0 26px;">{{ .Title | default "Writing" }}</h1>
+  <ul class="shapes">
+  {{ range (where .Site.RegularPages "Type" "post").ByDate.Reverse }}
+    {{ if .Title }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <small style="color:var(--muted);margin-left:8px;">{{ .Date.Format "Jan 2, 2006" }}</small>
+    </li>
+    {{ end }}
+  {{ end }}
+  </ul>
+  <p style="margin-top:36px;"><a href="/">← Back home</a></p>
+</section>
+{{ end }}
