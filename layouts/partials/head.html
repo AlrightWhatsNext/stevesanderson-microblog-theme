@@ -1,0 +1,3 @@
+<meta name="description" content="{{ .Site.Params.description | default .Site.Title }}">
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}">
+{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}">{{ end }}

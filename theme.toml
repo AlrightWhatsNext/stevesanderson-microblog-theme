@@ -1,0 +1,8 @@
+name = "Steve Sanderson"
+license = "MIT"
+licenselink = ""
+description = "Custom Micro.blog theme for stevesanderson.com"
+min_version = "0.91.0"
+
+[author]
+  name = "Steve Sanderson"

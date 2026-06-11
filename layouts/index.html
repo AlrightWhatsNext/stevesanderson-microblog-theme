@@ -1,0 +1,33 @@
+{{ define "main" }}
+<section class="hero">
+  <p class="eyebrow">Phase 0 spike</p>
+  <h1>{{ .Site.Title | default "stevesanderson.com" }}</h1>
+  <p class="check">If this box is off-white with a slate-blue border and serif headings above, <strong>custom CSS is applying</strong> (check 3 of 3).</p>
+</section>
+
+<section class="insights">
+  <h2>Insights — posts test</h2>
+  {{ $posts := where .Site.RegularPages "Type" "post" }}
+  {{ $titled := where $posts "Title" "!=" "" }}
+  {{ if $titled }}
+    <p class="ok">Posts rendered server-side (check 1 of 3). Showing up to 5 most-recent titled posts:</p>
+    <ul class="post-list">
+    {{ range first 5 $titled }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <small>{{ .Date.Format "Jan 2, 2006" }}</small>
+      </li>
+    {{ end }}
+    </ul>
+  {{ else }}
+    <p class="warn"><strong>NO POSTS RENDERED.</strong> If this test blog has titled posts and you still
+    see this, the newer-Hugo server-side post-listing bug is present on the selected Hugo version —
+    step back to an older version in Design → Hugo Version and rebuild.</p>
+  {{ end }}
+</section>
+
+<section class="cal-check">
+  <p class="check">A slate-blue <strong>“Schedule a conversation”</strong> floating button should appear
+  bottom-right (check 2 of 3 — Cal.com loaded from the footer).</p>
+</section>
+{{ end }}
