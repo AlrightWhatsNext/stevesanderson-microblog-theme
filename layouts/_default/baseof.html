@@ -11,7 +11,8 @@
 <nav>
   <div class="wrap">
     <a class="name" href="/">{{ .Site.Title | default "Steve Sanderson" }}</a>
-    <div class="links">
+    <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <div class="links" id="nav-links">
       <a href="/#who">Who it's for</a>
       <a href="/#bring">What I bring</a>
       <a href="/#help">How I help</a>
