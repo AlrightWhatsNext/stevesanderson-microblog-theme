@@ -23,11 +23,21 @@
   if (!sections.length) return; // post/blog pages keep the server-side .active
   sections.sort(function(a, b){ return a.offsetTop - b.offsetTop; });
 
-  function setActive(el){
-    links.forEach(function(a){ a.classList.remove('active'); });
-    if (el && map[el.id]) map[el.id].classList.add('active');
+  function activate(a){
+    links.forEach(function(x){ x.classList.remove('active'); });
+    if (a) a.classList.add('active');
   }
+
+  // Immediate feedback on click, held through the smooth-scroll settle so the anchor jump
+  // (which may not land the section at the top or the true page bottom) can't un-highlight it.
+  var lockUntil = 0;
+  links.forEach(function(a){
+    if ((a.getAttribute('href') || '').indexOf('#') < 0) return;
+    a.addEventListener('click', function(){ activate(a); lockUntil = Date.now() + 900; });
+  });
+
   function update(){
+    if (Date.now() < lockUntil) return;
     var line = window.innerHeight * 0.35;
     var current = null;
     for (var i = 0; i < sections.length; i++){
@@ -36,7 +46,7 @@
     if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 2)) {
       current = sections[sections.length - 1]; // at page bottom, force the last section
     }
-    setActive(current);
+    activate(current ? map[current.id] : null);
   }
   var ticking = false;
   function onScroll(){ if (!ticking){ ticking = true; window.requestAnimationFrame(function(){ update(); ticking = false; }); } }
