@@ -115,7 +115,8 @@
 <section id="engage">
   <div class="wrap text">
     <p class="eyebrow">Let's talk</p>
-    <p style="margin-bottom:22px;">{{ with .Site.Params.engage_note }}{{ . | safeHTML }}{{ else }}A short, personal note goes here - written by Steve.{{ end }}</p>
+    {{ with .Site.Params.engage_note }}<p>{{ . | safeHTML }}</p>{{ end }}
+    <p style="margin-bottom:22px;">If that's where you are, I'm easy to find. A conversation is worth thirty minutes - a peer conversation about what you're navigating and whether there's a fit. Not a pitch, not a discovery process, no intake form - and no interest in selling you more help than you need.</p>
     <button type="button" class="btn" style="border:0;cursor:pointer;font-family:inherit;" data-cal-namespace="30-minutes" data-cal-link="stevesanderson/30-minutes" data-cal-config='{"layout":"month_view"}'>Schedule a conversation</button>
   </div>
 </section>
