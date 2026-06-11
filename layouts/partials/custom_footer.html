@@ -6,7 +6,10 @@
   Cal.ns["30-minutes"]("ui", {"hideEventTypeDetails":false,"layout":"month_view","cssVarsPerTheme":{"light":{"cal-brand":"#2f4858"}}});
 </script>
 
-<!-- Scroll-spy: highlight the nav link for the homepage section in view. No-op on pages without those sections (post / blog), where the server-side .active stands. -->
+<!-- Scroll-spy: highlight the nav link for the homepage section in view.
+     Uses "last section past a line near the top, plus a bottom-of-page catch" so the final
+     section (Engage / Talk) reliably activates even though it can't reach the viewport center.
+     No-op on pages without these sections (post / blog), where the server-side .active stands. -->
 <script type="text/javascript">
 (function(){
   var links = Array.prototype.slice.call(document.querySelectorAll('nav .links a'));
@@ -17,17 +20,29 @@
     if (i >= 0) { var id = h.slice(i + 1); if (id) map[id] = a; }
   });
   var sections = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
-  if (!sections.length || !('IntersectionObserver' in window)) return;
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        links.forEach(function(a){ a.classList.remove('active'); });
-        var a = map[e.target.id];
-        if (a) a.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-  sections.forEach(function(s){ obs.observe(s); });
+  if (!sections.length) return; // post/blog pages keep the server-side .active
+  sections.sort(function(a, b){ return a.offsetTop - b.offsetTop; });
+
+  function setActive(el){
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if (el && map[el.id]) map[el.id].classList.add('active');
+  }
+  function update(){
+    var line = window.innerHeight * 0.35;
+    var current = null;
+    for (var i = 0; i < sections.length; i++){
+      if (sections[i].getBoundingClientRect().top <= line) current = sections[i];
+    }
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 2)) {
+      current = sections[sections.length - 1]; // at page bottom, force the last section
+    }
+    setActive(current);
+  }
+  var ticking = false;
+  function onScroll(){ if (!ticking){ ticking = true; window.requestAnimationFrame(function(){ update(); ticking = false; }); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();
 </script>
 
