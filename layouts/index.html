@@ -1,33 +1,124 @@
 {{ define "main" }}
-<section class="hero">
-  <p class="eyebrow">Phase 0 spike</p>
-  <h1>{{ .Site.Title | default "stevesanderson.com" }}</h1>
-  <p class="check">If this box is off-white with a slate-blue border and serif headings above, <strong>custom CSS is applying</strong> (check 3 of 3).</p>
-</section>
 
-<section class="insights">
-  <h2>Insights — posts test</h2>
-  {{ $posts := where .Site.RegularPages "Type" "post" }}
-  {{ $titled := where $posts "Title" "!=" "" }}
-  {{ if $titled }}
-    <p class="ok">Posts rendered server-side (check 1 of 3). Showing up to 5 most-recent titled posts:</p>
-    <ul class="post-list">
-    {{ range first 5 $titled }}
-      <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <small>{{ .Date.Format "Jan 2, 2006" }}</small>
-      </li>
-    {{ end }}
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <img class="photo" src="/steve-sanderson.jpg" alt="Steve Sanderson">
+      <div>
+        <h1>The capability to deliver better products rarely sits just inside the full product org. It's spread across the company - and lost in the boundaries between functions.</h1>
+        <p class="sub">I coach revenue-stage software CEOs and their leaders to put that capability to work - getting more of the organization doing the jobs that make products better, and proving it runs end to end through the company.</p>
+        <p class="approach">The potential in the Product Operating Model is an entire company that delivers better products - not just a better product team. I know and love the whole territory - the full product lifecycle, and every seat from individual contributor to CEO.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- WHO -->
+<section id="who">
+  <div class="wrap text">
+    <p class="eyebrow">Who this is for</p>
+    <p class="lead">I work with revenue-stage software companies raising their capability to deliver better products - getting started, carrying it through, or sharpening what's already running. It tends to look like one of these:</p>
+    <ul class="fit">
+      <li>You're an established product company built around output - features shipped against a roadmap and a plan - and now you need to solve the customer's problems instead.</li>
+      <li>Your leadership team says it's bought in, but underneath, isn't aligned on what it costs each of them.</li>
+      <li>You're a services business expanding into products, and you need to build the product organization - and the leadership for it - to make that real.</li>
+      <li>You're founder-led and outgrowing founder-run product and engineering.</li>
+      <li>Product, design, and engineering are working to different agendas, without the trust and collaboration between them - and the work keeps breaking where they're supposed to connect.</li>
+      <li>Product, design, and engineering are changing how they work, but the rest of the company isn't - and friction keeps building at the seams.</li>
     </ul>
-  {{ else }}
-    <p class="warn"><strong>NO POSTS RENDERED.</strong> If this test blog has titled posts and you still
-    see this, the newer-Hugo server-side post-listing bug is present on the selected Hugo version —
-    step back to an older version in Design → Hugo Version and rebuild.</p>
-  {{ end }}
+  </div>
 </section>
 
-<section class="cal-check">
-  <p class="check">A slate-blue <strong>“Schedule a conversation”</strong> floating button should appear
-  bottom-right (check 2 of 3 — Cal.com loaded from the footer).</p>
+<!-- WHAT I BRING -->
+<section id="bring">
+  <div class="wrap text">
+    <p class="eyebrow">What I bring</p>
+    <p>My work runs across a company in both directions: east-west, the whole product lifecycle - product management, design, and engineering; and north-south, from the people doing the work up to the executive team setting direction.</p>
+    <p>I've been a CEO, three times. I've led product management as a CPO, led engineering as a CTO and VP of Product Development, and led all three together - product, design, and engineering - as a CPO and CPTO. And I've been a software engineer and a product manager. So wherever the work is stuck - between functions or between levels - I've stood on both sides of it.</p>
+    <p>I've also worked both ends of the same arc: helping early companies find product-market fit the lean-startup way - that work shows up in Eric Ries's <em>The Lean Startup</em> and Ash Maurya's <em>Running Lean</em> - and leading the move to the Product Operating Model once a company has outgrown how it first found fit.</p>
+  </div>
 </section>
+
+<!-- HOW I HELP -->
+<section id="help">
+  <div class="wrap text">
+    <p class="eyebrow">How I help</p>
+    <p>The work is coaching - the CEO, the leadership team, and product leadership across product management, design, and engineering. It runs on two fronts: changing how those functions work, and holding that change together across the seams with the rest of the company. Every engagement is scoped to where the company actually is.</p>
+    <p style="margin-bottom:8px;">It usually takes one of these shapes:</p>
+    <ul class="shapes">
+      <li><b>A read on where things stand.</b> A focused look at the product organization and its seams - what's moving outcomes, what's in the way, and where to start.</li>
+      <li><b>Coaching the leadership team through the change.</b> Getting the CEO and leaders aligned on what it costs and changes for each of them - and holding it across the seams with the rest of the company.</li>
+      <li><b>The product and engineering partnership.</b> Coaching the CPO/CTO relationship and the line between product and engineering - one of the seams the work has to hold.</li>
+      <li><b>Standing up product leadership.</b> Defining, hiring, and onboarding the leadership the next stage needs - across product management, design, and engineering - so the roles actually take.</li>
+      <li><b>Discovery and how teams work.</b> Getting product management, design, and engineering working as empowered teams on outcome-driven discovery.</li>
+      <li><b>Strategy, portfolio, and incentives.</b> Aligning what teams work on - and how they're measured - to the outcomes the business needs.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section id="work">
+  <div class="wrap text">
+    <p class="eyebrow">How I work</p>
+    <p>I start by understanding, not prescribing - I'd rather learn what's actually going on than walk in with the answer. The hard "what to change" decisions get located in evidence and discovery - not in opinion or edict - and I keep the work pointed back at the people the company is serving, connecting the business model, the operating model, and the product through their unmet needs.</p>
+    <p>And I widen who does the work that makes products better. Inside the product org, I get people reaching past their titles - an engineer in a customer conversation, a designer or PM building a working prototype. Outside it, I bring in the people already doing that work without the title - a customer success lead spotting and testing real demand. AI tools are making both easier, fast.</p>
+    <p>When something's stuck, I look for the broken mechanism - what would have to be true for this to work - before reaching for "do more." And I read the human system as closely as the org chart - what's really happening between people, on a leadership team, inside a team, at the seams - not just what's on the whiteboard. That's usually what makes the operating model work in practice rather than on paper.</p>
+    <p>Then I push to prove it end to end before optimizing anything - one real product, one real customer outcome, all the way through, before tuning the parts. Getting a single instance to work end to end is the hard part; once it exists, making it better is the easier part. I move from the whole down to the detail and back up, continuously, so the parts stay connected to the outcome.</p>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="wrap text">
+    <p class="eyebrow">Where I've done it</p>
+
+    <h3 style="font-size:21px;margin:0 0 2px;">Rackspace</h3>
+    <p style="color:var(--muted);font-size:14px;margin:0 0 14px;">2013 to 2016</p>
+    <p>A publicly traded hosting incumbent pushing into cloud, with a product organization that needed to change how it found and pursued opportunities. I was brought in to apply lean-startup methods across multiple teams - building real discovery into how they worked, drawing on signal from the company's own customer-facing staff and from current, prospective, and adjacent customers alike. I coached teams to operate as a blend of product management, design, and engineering, and brought marketing into the discovery work alongside them. Several teams put that discovery into practice and found new growth - and the same evidence stopped more than one new product or new direction before it was built. The executive team took up the approach too, carrying it into the CEO's weekly leadership meeting.</p>
+
+    <h3 style="font-size:21px;margin:36px 0 2px;">Double Line</h3>
+    <p style="color:var(--muted);font-size:14px;margin:0 0 14px;">2016 to 2019</p>
+    <p>A public-sector data-services firm, stalled after a rocky spin-out from its nonprofit parent and boxed in by the one thing it was known for. I came in as CEO, led the cultural and operational recovery, and put the company on a product operating model I adapted for a services business - using it across our service delivery, our client relationships, and the guidance we gave clients, all aligned to the people those clients ultimately serve. Bookings more than doubled over two years, and the same product-discovery work tested several new product ideas, rejected some, and surfaced one - EdSight - that spun out as its own company.</p>
+
+    <h3 style="font-size:21px;margin:36px 0 2px;">Rhithm</h3>
+    <p style="color:var(--muted);font-size:14px;margin:0 0 14px;">2021 to 2023</p>
+    <p>A founder-led K-12 student-wellbeing startup, freshly funded and scaling past what founder-run product and engineering could carry. I came in as CPTO - running product and engineering together - and installed the product operating model: empowered teams, real discovery, and product decisions moved into the product org. Rhithm was acquired by Securly during my tenure - by then used by some 1.2 million students across 27 states - and I stayed on through the integration.</p>
+  </div>
+</section>
+
+<!-- INSIGHTS (live posts) -->
+<section id="insights">
+  <div class="wrap">
+    <div class="text">
+      <p class="eyebrow">Insights</p>
+      <p>Writing from stevesanderson.com.</p>
+    </div>
+    {{ $titled := where (where .Site.RegularPages "Type" "post") "Title" "!=" "" }}
+    {{ with $titled }}
+    <div class="cards">
+      {{ range first 3 . }}
+      <div class="card">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p style="margin:0 0 8px;color:var(--muted);font-size:13px;">{{ .Date.Format "Jan 2, 2006" }}</p>
+        <p style="margin:0;">{{ .Summary | plainify | truncate 140 }}</p>
+      </div>
+      {{ end }}
+    </div>
+    <p style="margin-top:18px;"><a href="/archive/">All posts →</a></p>
+    {{ else }}
+    <p class="text">Posts will appear here.</p>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ENGAGE -->
+<section id="engage">
+  <div class="wrap text">
+    <p class="eyebrow">Let's talk</p>
+    <p style="margin-bottom:22px;">{{ with .Site.Params.engage_note }}{{ . | safeHTML }}{{ else }}A short, personal note goes here - written by Steve.{{ end }}</p>
+    <button type="button" class="btn" style="border:0;cursor:pointer;font-family:inherit;" data-cal-namespace="30-minutes" data-cal-link="stevesanderson/30-minutes" data-cal-config='{"layout":"month_view"}'>Schedule a conversation</button>
+  </div>
+</section>
+
 {{ end }}

@@ -1,15 +1,16 @@
 {{ define "main" }}
-<section class="list">
-  <h1>{{ .Title | default "Posts" }}</h1>
-  <ul class="post-list">
+<section class="wrap text" style="padding:56px 28px 64px;">
+  <h1 style="font-size:30px;margin:0 0 24px;">{{ .Title | default "Posts" }}</h1>
+  <ul class="shapes">
   {{ range .Pages }}
     {{ if .Title }}
     <li>
       <a href="{{ .Permalink }}">{{ .Title }}</a>
-      <small>{{ .Date.Format "Jan 2, 2006" }}</small>
+      <small style="color:var(--muted);margin-left:8px;">{{ .Date.Format "Jan 2, 2006" }}</small>
     </li>
     {{ end }}
   {{ end }}
   </ul>
+  <p style="margin-top:32px;"><a href="/">← Back home</a></p>
 </section>
 {{ end }}

@@ -3,13 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Site.Title }}{{ if .Title }} — {{ .Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} — {{ end }}{{ .Site.Title }}{{ end }}</title>
   {{ partial "head.html" . }}
 </head>
 <body>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  {{ partial "custom_footer.html" . }}
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="/">{{ .Site.Title | default "Steve Sanderson" }}</a>
+    <div class="links">
+      <a href="/#who">Who it's for</a>
+      <a href="/#bring">What I bring</a>
+      <a href="/#help">How I help</a>
+      <a href="/#work">How I work</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#insights">Insights</a>
+      <a href="/#engage">Talk</a>
+    </div>
+  </div>
+</nav>
+
+{{ block "main" . }}{{ end }}
+
+<footer>
+  <div class="wrap">
+    <div>© {{ .Site.Title | default "Steve Sanderson" }} · stevesanderson.com</div>
+    <div></div>
+  </div>
+</footer>
+
+{{ partial "custom_footer.html" . }}
 </body>
 </html>

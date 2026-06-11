@@ -1,10 +1,10 @@
 {{ define "main" }}
-<article class="post">
-  {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
-  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+<article class="wrap text" style="padding:56px 28px 64px;">
+  {{ if .Title }}<h1 style="font-size:32px;margin:0 0 8px;">{{ .Title }}</h1>{{ end }}
+  <p style="color:var(--muted);font-size:14px;margin:0 0 28px;">{{ .Date.Format "Jan 2, 2006" }}</p>
   <div class="post-content">
     {{ .Content }}
   </div>
-  <p class="back"><a href="{{ .Site.BaseURL }}">← Home</a></p>
+  <p style="margin-top:44px;"><a href="/">← Back home</a></p>
 </article>
 {{ end }}
