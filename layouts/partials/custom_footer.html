@@ -1,9 +1,34 @@
-<!-- Cal.com floating-popup embed (spike test: scripts in templates/footer are NOT stripped) -->
+<!-- Cal.com floating-popup embed (scripts run in templates/footer; stripped in post bodies) -->
 <script type="text/javascript">
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", "30-minutes", {origin:"https://app.cal.com"});
   Cal.ns["30-minutes"]("floatingButton", {"calLink":"stevesanderson/30-minutes","config":{"layout":"month_view","useSlotsViewOnSmallScreen":"true"},"buttonText":"Schedule a conversation","buttonColor":"#2f4858","buttonTextColor":"#ffffff"});
   Cal.ns["30-minutes"]("ui", {"hideEventTypeDetails":false,"layout":"month_view","cssVarsPerTheme":{"light":{"cal-brand":"#2f4858"}}});
+</script>
+
+<!-- Scroll-spy: highlight the nav link for the homepage section in view. No-op on pages without those sections (post / blog), where the server-side .active stands. -->
+<script type="text/javascript">
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav .links a'));
+  var map = {};
+  links.forEach(function(a){
+    var h = a.getAttribute('href') || '';
+    var i = h.indexOf('#');
+    if (i >= 0) { var id = h.slice(i + 1); if (id) map[id] = a; }
+  });
+  var sections = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s){ obs.observe(s); });
+})();
 </script>
 
 {{/* Micro.blog Custom Footer setting (Design -> Edit theme -> Custom Footer) renders here too */}}

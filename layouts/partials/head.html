@@ -30,8 +30,9 @@ nav{position:sticky;top:0;z-index:10;background:rgba(251,250,247,.9);backdrop-fi
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
 nav .name{font-family:Georgia,serif;font-size:19px;font-weight:600;color:var(--ink);}
 nav .name:hover{text-decoration:none;}
-nav .links a{margin-left:26px;color:var(--muted);font-size:15px;}
+nav .links a{margin-left:26px;color:var(--muted);font-size:15px;border-bottom:2px solid transparent;padding-bottom:3px;}
 nav .links a:hover{color:var(--ink);text-decoration:none;}
+nav .links a.active{color:var(--ink);border-bottom-color:var(--accent);}
 @media(max-width:680px){nav .links{display:none;}}
 
 /* section rhythm */

@@ -17,7 +17,7 @@
       <a href="/#help">How I help</a>
       <a href="/#work">How I work</a>
       <a href="/#proof">Proof</a>
-      <a href="/#insights">Insights</a>
+      <a href="/#insights"{{ if or (eq .Type "post") (eq .Type "blog") }} class="active"{{ end }}>Insights</a>
       <a href="/#engage">Talk</a>
     </div>
   </div>
