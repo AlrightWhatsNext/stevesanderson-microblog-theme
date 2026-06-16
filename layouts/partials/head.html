@@ -1,5 +1,5 @@
-{{ $title := "Steve Sanderson - coaching revenue-stage software CEOs" }}{{ if and (not .IsHome) .Title }}{{ $title = .Title }}{{ end }}
-{{ $desc := "Steve Sanderson - coaching revenue-stage software CEOs and their leaders to raise the capability to deliver better products." }}{{ if and (not .IsHome) .Summary }}{{ $desc = .Summary | plainify }}{{ end }}
+{{ $title := "Steve Sanderson - Product Operating Model coaching" }}{{ if and (not .IsHome) .Title }}{{ $title = .Title }}{{ end }}
+{{ $desc := "Steve Sanderson works with leaders building and bringing software products to market - getting the whole company, not just the product team, behind the outcomes that move the business." }}{{ if and (not .IsHome) .Summary }}{{ $desc = .Summary | plainify }}{{ end }}
 <meta name="description" content="{{ $desc }}">
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
@@ -75,6 +75,26 @@ p{margin:0 0 20px;}
 .hero-cta{display:inline-block;margin-top:24px;color:var(--accent);font-weight:600;font-size:16px;}
 .hero-cta:hover{text-decoration:underline;}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr;}.photo{width:220px;}.hero h1{font-size:32px;}}
+.proofbar{font-size:14px;color:var(--muted);line-height:1.55;margin:26px 0 0;padding-top:18px;border-top:1px solid var(--line);}
+
+/* who: quiet index */
+#who .r{position:absolute;left:-9999px;}
+.index{max-width:var(--maxtext);margin:34px 0 0;border-top:1px solid var(--line);}
+.index .item{border-bottom:1px solid var(--line);}
+.index .row{display:flex;align-items:baseline;gap:18px;padding:20px 2px;cursor:pointer;transition:background .12s;}
+.index .row:hover{background:var(--accent-soft);}
+.index .row .nm{font-family:Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);flex:0 0 180px;transition:color .15s;}
+.index .row .trig{font-size:14px;color:var(--muted);line-height:1.5;margin:0;}
+.index .row .mk{margin-left:auto;align-self:center;color:var(--muted);font-size:13px;flex:0 0 auto;transition:transform .15s;}
+.reveal{display:none;padding:2px 2px 24px 198px;}
+#w1:checked ~ .index .v1,#w2:checked ~ .index .v2,#w3:checked ~ .index .v3,#w4:checked ~ .index .v4{display:block;}
+#w1:checked ~ .index label[for="w1"] .nm,#w2:checked ~ .index label[for="w2"] .nm,#w3:checked ~ .index label[for="w3"] .nm,#w4:checked ~ .index label[for="w4"] .nm{color:var(--accent);}
+#w1:checked ~ .index label[for="w1"] .mk,#w2:checked ~ .index label[for="w2"] .mk,#w3:checked ~ .index label[for="w3"] .mk,#w4:checked ~ .index label[for="w4"] .mk{transform:rotate(90deg);}
+.reveal .who-l{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0 0 5px;}
+.reveal .case{font-weight:600;color:var(--accent);font-size:16px;}
+.reveal .case .yr{color:var(--muted);font-weight:400;font-size:14px;}
+.reveal p.story{font-size:16px;line-height:1.55;margin:7px 0 0;}
+@media(max-width:640px){.index .row{flex-wrap:wrap;gap:6px;}.index .row .nm{flex:0 0 100%;}.reveal{padding-left:2px;}}
 
 /* lists */
 ul.shapes{list-style:none;padding:0;margin:6px 0 0;}

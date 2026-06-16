@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}Steve Sanderson - coaching revenue-stage software CEOs{{ else }}{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}Steve Sanderson - Product Operating Model coaching{{ else }}{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
   {{ partial "head.html" . }}
 </head>
 <body>
@@ -17,7 +17,6 @@
       <a href="/#bring">What I bring</a>
       <a href="/#help">How I help</a>
       <a href="/#work">How I work</a>
-      <a href="/#proof">Proof</a>
       <a href="/#insights"{{ if or (eq .Type "post") (eq .Type "blog") }} class="active"{{ end }}>Insights</a>
       <a href="/#engage">Talk</a>
     </div>
