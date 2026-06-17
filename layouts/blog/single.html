@@ -3,8 +3,10 @@
   <p class="eyebrow">Insights</p>
   <h1 style="font-size:30px;margin:0 0 26px;">{{ .Title | default "Writing" }}</h1>
   <ul class="shapes">
+  {{/* Filtered to the current practice: hide any post before the Jan 22, 2026 post.
+       ISO-date string compare is version-robust (lexicographic == chronological). */}}
   {{ range (where .Site.RegularPages "Type" "post").ByDate.Reverse }}
-    {{ if .Title }}
+    {{ if and .Title (ge (.Date.Format "2006-01-02") "2026-01-22") }}
     <li>
       <a href="{{ .Permalink }}">{{ .Title }}</a>
       <small style="color:var(--muted);margin-left:8px;">{{ .Date.Format "Jan 2, 2006" }}</small>
