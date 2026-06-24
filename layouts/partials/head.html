@@ -1,5 +1,5 @@
-{{ $title := "Steve Sanderson - Product Operating Model coaching" }}{{ if and (not .IsHome) .Title }}{{ $title = .Title }}{{ end }}
-{{ $desc := "Steve Sanderson works with leaders building and bringing software products to market - getting the whole company, not just the product team, behind the outcomes that move the business." }}{{ if and (not .IsHome) .Summary }}{{ $desc = .Summary | plainify }}{{ end }}
+{{ $title := "Steve Sanderson - Builder-Operator" }}{{ if and (not .IsHome) .Title }}{{ $title = .Title }}{{ end }}
+{{ $desc := "Steve Sanderson builds companies that deliver great product, and the AI-native products inside them - and helps leaders who have the AI mandate, are shipping faster with AI, and aren't seeing the business move." }}{{ if and (not .IsHome) .Summary }}{{ $desc = .Summary | plainify }}{{ end }}
 <meta name="description" content="{{ $desc }}">
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
@@ -80,7 +80,7 @@ p{margin:0 0 20px;}
 .proofbar{font-size:14px;color:var(--muted);line-height:1.55;margin:26px 0 0;padding-top:18px;border-top:1px solid var(--line);}
 
 /* who: quiet index */
-#who .r{position:absolute;left:-9999px;}
+.r{position:absolute;left:-9999px;}
 .index{max-width:var(--maxtext);margin:34px 0 0;border-top:1px solid var(--line);}
 .index .item{border-bottom:1px solid var(--line);}
 .index .row{display:flex;align-items:baseline;gap:18px;padding:20px 2px;cursor:pointer;transition:background .12s;}
