@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}Steve Sanderson - Product Operating Model coaching{{ else }}{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}Steve Sanderson - Builder-Operator{{ else }}{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
   {{ partial "head.html" . }}
 </head>
 <body>
@@ -13,10 +13,9 @@
     <a class="name" href="/">{{ .Site.Title | default "Steve Sanderson" }}</a>
     <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
     <div class="links" id="nav-links">
-      <a href="/#who">Who it's for</a>
-      <a href="/#possible">What's possible</a>
+      <a href="/#whohelp">Who I help</a>
       <a href="/#bring">What I bring</a>
-      <a href="/#help">How I help</a>
+      <a href="/#track">Track record</a>
       <a href="/#work">How I work</a>
       <a href="/#insights"{{ if or (eq .Type "post") (eq .Type "blog") }} class="active"{{ end }}>Insights</a>
       <a href="/#engage">Let's Talk</a>
